@@ -122,18 +122,26 @@ const MatchSchedule = ({ data }) => {
                         justify={'center'}
                     >
                         <Text padding={1} pr={5} display={{ base: 'none', md: 'block' }}>{match.time}</Text>
-                        {showFlgs &&
+                        {showFlgs ? (
+                            (window.innerWidth < 768) ? (
+                                <ReactCountryFlag
+                                    countryCode={countries[match.home_team]}
+                                    svg
+                                    style={{ fontSize: '1.5rem' }}
+                                    alt={match.home_team}
+                                />
+                            ) : (
+                                <ReactCountryFlag
+                                    countryCode={countries[match.home_team]}
+                                    svg
+                                    style={{ fontSize: '2rem' }}
+                                    alt={match.home_team}
+                                />
+                            )
+                        ) : null
 
-                            <ReactCountryFlag
-                                countryCode={countries[match.home_team]}
-                                svg
-                                style={{
-                                    fontSize: '2rem',
-                                }}
-                                alt={match.home_team}
-                            />
                         }
-                        <Text fontWeight={isHomeTeamSlovakia ? 'bold' : 'normal'} fontSize={{ base: 'medium', sm: 'large' }} width={"25%"} textAlign={'right'}>{match.home_team}</Text>
+                        <Text fontWeight={isHomeTeamSlovakia ? 'bold' : 'normal'} fontSize={{ base: '95%', sm: 'large' }} width={"25%"} textAlign={'right'}>{match.home_team}</Text>
                         <Input
                             width={'6%'}
                             height={'50%'}
@@ -161,25 +169,34 @@ const MatchSchedule = ({ data }) => {
                             bg={colorMode === "dark" ? "gray.700" : "white"}
                             min={0}
                         />
-                        <Text fontWeight={isAwayTeamSlovakia ? 'bold' : 'normal'} fontSize={{ base: 'medium', sm: 'large' }} width={"25%"} textAlign={'left'}>{match.away_team}</Text>
-                        {showFlgs &&
+                        <Text fontWeight={isAwayTeamSlovakia ? 'bold' : 'normal'} fontSize={{ base: '95%', sm: 'large' }} width={"25%"} textAlign={'left'}>{match.away_team}</Text>
+                        {showFlgs ? (
+                            (window.innerWidth < 768) ? (
+                                <ReactCountryFlag
+                                    countryCode={countries[match.away_team]}
+                                    svg
+                                    style={{ fontSize: '1.5rem' }}
+                                    alt={match.away_team}
+                                />
+                            ) : (
+                                <ReactCountryFlag
+                                    countryCode={countries[match.away_team]}
+                                    svg
+                                    style={{ fontSize: '2rem' }}
+                                    alt={match.away_team}
+                                />
+                            )
+                        ) : null
 
-                            <ReactCountryFlag
-                                countryCode={countries[match.away_team]}
-                                svg
-                                style={{
-                                    fontSize: '2rem',
-                                }}
-                                alt={match.away_team}
-                            />
                         }
+
                         <Checkbox
                             readOnly={locked && match.edited == null}
                             defaultChecked={match.overtime}
                             cursor={locked && match.edited == null ? 'not-allowed' : 'pointer'}
                             onChange={(e) => handleCheckboxChange(e, index, group)}
                         >
-                            <Tooltip label='Výsledok po predĺžení/nájazdoch'>OT</Tooltip>
+                            <Tooltip label='Výsledok po predĺžení/nájazdoch'><Box fontSize={{ base: '90%', md: '100%' }}>OT</Box></Tooltip>
                         </Checkbox>
                     </HStack>
                 </Box>
@@ -204,14 +221,14 @@ const MatchSchedule = ({ data }) => {
                 </FormControl>
             </Stack>
 
-            <Stack spacing={{ base: "20px", md: "40px" }} width={{ base: '90%', sm: '80%' }} justify={'center'} margin={'auto'} direction={{ base: 'column', lg: 'row' }} pb={'5rem'}>
+            <Stack spacing={{ base: "20px", md: "40px" }} width={{ base: '95%', xs: '90%', sm: '80%' }} justify={'center'} margin={'auto'} direction={{ base: 'column', lg: 'row' }} pb={'5rem'}>
 
                 <VStack alignItems={{ base: 'center', md: 'flex-start' }}>
                     <Box fontWeight="bold" fontSize="xl" mb="4" >
                         <Text as={'h2'}>Skupina A</Text>
                     </Box>
                     {renderMatchesWithDate(groupA, 'group-A')}
-                    <HockeyTable group={tableAScore} matches={data.matches["group-A"]}/>
+                    <HockeyTable group={tableAScore} matches={data.matches["group-A"]} />
                 </VStack>
 
                 <VStack alignItems={{ base: 'center', md: 'flex-start' }}>
@@ -219,7 +236,7 @@ const MatchSchedule = ({ data }) => {
                         <Text as={'h2'}>Skupina B</Text>
                     </Box>
                     {renderMatchesWithDate(groupB, 'group-B')}
-                    <HockeyTable group={tableBScore} matches={data.matches["group-B"]}/>
+                    <HockeyTable group={tableBScore} matches={data.matches["group-B"]} />
 
                 </VStack>
             </Stack>

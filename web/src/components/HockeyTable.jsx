@@ -121,26 +121,11 @@ function HockeyTable({ group, matches }) {
         return [teamName, group[teamName]];
     }
 
-    // const sortedGroup = Object.entries(group).sort(([countryA, dataA], [countryB, dataB]) => {
-    //     // Porovnanie počtu bodov
-    //     if (dataA.points !== dataB.points) {
-    //         return dataB.points - dataA.points; // Zoradiť od najväčšieho počtu bodov
-    //     } else {
-    //         // Ak majú tímy rovnaký počet bodov, overiť ich vzájomné zápasy
-    //         if (dataA[countryB] === 'W') {
-    //             return -1; // Krajina A vyhrala vzájomný zápas, takže je vyššie v tabuľke
-    //         } else if (dataB[countryA] === 'W') {
-    //             return 1; // Krajina B vyhrala vzájomný zápas, takže je vyššie v tabuľke
-    //         } else {
-    //             // Ak neexistuje výsledok vzájomného zápasu alebo je to remíza, ponecháme pôvodné table
-    //             return 0;
-    //         }
-    //     }
-    // });
+
 
     return (
-        <TableContainer>
-            <Table size={{ base: 'sm', md: 'md' }} width={{ base: '90%' }}>
+        <TableContainer width={"100%"}>
+            <Table size={{ base: 'sm', md: 'md' }}>
                 <Thead>
                     <Tr>
                         <Th></Th>
@@ -156,19 +141,7 @@ function HockeyTable({ group, matches }) {
                 </Thead>
                 <Tbody>
 
-                    {/* {sortedGroup.map(([country, data], index) => (
-                        <Tr key={index} backgroundColor={index < 4 ? 'green.300' : index === sortedGroup.length - 1 ? 'red.300' : ''}>
-                            <Td>{index + 1}</Td>
-                            <Td>{country === 'Slovensko' ? <strong>{country}</strong> : country}</Td>
-                            <Td isNumeric>{data.matches}</Td>
-                            <Td isNumeric>{data.wins}</Td>
-                            <Td isNumeric>{data.winsOT}</Td>
-                            <Td isNumeric>{data.loses}</Td>
-                            <Td isNumeric>{data.losesOT}</Td>
-                            <Td isNumeric>{data["goals-scored"]} : {data["goals-conceded"]}</Td>
-                            <Td isNumeric>{data.points}</Td>
-                        </Tr>
-                    ))}  */}
+
                     {table.reverse().map(({ data }, index) => (
                         <Tr key={index} backgroundColor={index < 4 ? 'green.300' : index === table.length - 1 ? 'red.300' : ''}>
                             <Td>{index + 1}</Td>
