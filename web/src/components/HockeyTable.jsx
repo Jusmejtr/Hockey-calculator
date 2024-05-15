@@ -3,9 +3,6 @@ import { Table, TableContainer, Tbody, Th, Thead, Tr, Td } from '@chakra-ui/reac
 
 function HockeyTable({ group, matches }) {
 
-    console.log(matches);
-
-
     const teamPoints = Object.keys(group).map(team => {
         const points = group[team].points;
         return { team, points };
@@ -16,10 +13,7 @@ function HockeyTable({ group, matches }) {
         return acc;
     }, {});
 
-
-
-    var poradie = [];
-    let pocitadlo = 8;
+    var table = [];
 
     function updateStats(miniTable, homeTeam, awayTeam, homeGoals, awayGoals, overtime) {
         if (overtime == null) {
@@ -59,26 +53,26 @@ function HockeyTable({ group, matches }) {
         }
     }
 
+    function goalDifference(table, team) {
+        return table[team]["goals-scored"] - table[team]["goals-conceded"];
+    }
+
+
     // key - pocet bodov
-    // pointsCount[key] - pocet krajin s tymto poctom bodov
+    // pointsCount[key] - pocet krajin s tymto poctom bodov 
     for (let key in pointsCount) {
         let teamNames = getTeamsWithPoints(group, parseInt(key));
         if (pointsCount[key] === 1) {
-            poradie.push({ pozicia: pocitadlo, data: getTeamData(group, teamNames) });
-            pocitadlo--;
+            table.push({ data: getTeamData(group, teamNames[0]) });
         } else if (pointsCount[key] === 2) {
             if (group[teamNames[0]][teamNames[1]] === "W") {
-                poradie.push({ pozicia: pocitadlo, data: getTeamData(group, teamNames[1]) });
-                pocitadlo--;
+                table.push({ data: getTeamData(group, teamNames[1]) });
 
-                poradie.push({ pozicia: pocitadlo, data: getTeamData(group, teamNames[0]) });
-                pocitadlo--;
+                table.push({ data: getTeamData(group, teamNames[0]) });
             } else {
-                poradie.push({ pozicia: pocitadlo, data: getTeamData(group, teamNames[0]) });
-                pocitadlo--;
+                table.push({ data: getTeamData(group, teamNames[0]) });
 
-                poradie.push({ pozicia: pocitadlo, data: getTeamData(group, teamNames[1]) });
-                pocitadlo--;
+                table.push({ data: getTeamData(group, teamNames[1]) });
             }
         } else {
             var miniTable = {};
@@ -103,14 +97,16 @@ function HockeyTable({ group, matches }) {
 
             const pointsArray = Object.values(miniTable).map(team => team.points);
             const allEqual = pointsArray.every((val, i, arr) => val === arr[0]);
-            
+
             if (allEqual) {
-                console.log("Týmy mají rovnaký počet bodů.");
-            } else {                
-                const sortedTeams = Object.entries(miniTable).sort((a, b) => a[1].points - b[1].points);
+                let sortedTeams = Object.keys(miniTable).sort((a, b) => goalDifference(miniTable, a) - goalDifference(miniTable, b));
                 sortedTeams.forEach(team => {
-                    poradie.push({ pozicia: pocitadlo, data: getTeamData(group, team[0]) });
-                    pocitadlo--;
+                    table.push({ data: getTeamData(group, team) });
+                });
+            } else {
+                let sortedTeams = Object.entries(miniTable).sort((a, b) => a[1].points - b[1].points);
+                sortedTeams.forEach(team => {
+                    table.push({ data: getTeamData(group, team[0]) });
                 });
             }
         }
@@ -125,50 +121,22 @@ function HockeyTable({ group, matches }) {
         return [teamName, group[teamName]];
     }
 
-    // const teamsByPoints = {};
-    // for (const team in group) {
-    //     const points = group[team].points;
-    //     if (!teamsByPoints[points]) {
-    //         teamsByPoints[points] = [];
-    //     }
-    //     teamsByPoints[points].push(team);
-    // }
-
-
-    // Object.keys(teamsByPoints).forEach(points => {
-    //     //console.log(`Teams with ${points} points:`, teamsByPoints[points])
-    //     //console.log(teamsByPoints[points]);
-    //     if(points != 0){
-    //         if(teamsByPoints[points].length == 2){
-    //             console.log("tu");
-    //         }else if(teamsByPoints[points].length > 2){
-    //             console.log("tca");
+    // const sortedGroup = Object.entries(group).sort(([countryA, dataA], [countryB, dataB]) => {
+    //     // Porovnanie počtu bodov
+    //     if (dataA.points !== dataB.points) {
+    //         return dataB.points - dataA.points; // Zoradiť od najväčšieho počtu bodov
+    //     } else {
+    //         // Ak majú tímy rovnaký počet bodov, overiť ich vzájomné zápasy
+    //         if (dataA[countryB] === 'W') {
+    //             return -1; // Krajina A vyhrala vzájomný zápas, takže je vyššie v tabuľke
+    //         } else if (dataB[countryA] === 'W') {
+    //             return 1; // Krajina B vyhrala vzájomný zápas, takže je vyššie v tabuľke
+    //         } else {
+    //             // Ak neexistuje výsledok vzájomného zápasu alebo je to remíza, ponecháme pôvodné table
+    //             return 0;
     //         }
     //     }
     // });
-
-
-
-
-
-    const sortedGroup = Object.entries(group).sort(([countryA, dataA], [countryB, dataB]) => {
-        // Porovnanie počtu bodov
-        if (dataA.points !== dataB.points) {
-            return dataB.points - dataA.points; // Zoradiť od najväčšieho počtu bodov
-        } else {
-            // Ak majú tímy rovnaký počet bodov, overiť ich vzájomné zápasy
-            if (dataA[countryB] === 'W') {
-                return -1; // Krajina A vyhrala vzájomný zápas, takže je vyššie v tabuľke
-            } else if (dataB[countryA] === 'W') {
-                return 1; // Krajina B vyhrala vzájomný zápas, takže je vyššie v tabuľke
-            } else {
-                // Ak neexistuje výsledok vzájomného zápasu alebo je to remíza, ponecháme pôvodné poradie
-                return 0;
-            }
-        }
-    });
-
-    //console.log(sortedGroup)
 
     return (
         <TableContainer>
@@ -187,7 +155,8 @@ function HockeyTable({ group, matches }) {
                     </Tr>
                 </Thead>
                 <Tbody>
-                    {sortedGroup.map(([country, data], index) => (
+
+                    {/* {sortedGroup.map(([country, data], index) => (
                         <Tr key={index} backgroundColor={index < 4 ? 'green.300' : index === sortedGroup.length - 1 ? 'red.300' : ''}>
                             <Td>{index + 1}</Td>
                             <Td>{country === 'Slovensko' ? <strong>{country}</strong> : country}</Td>
@@ -199,7 +168,21 @@ function HockeyTable({ group, matches }) {
                             <Td isNumeric>{data["goals-scored"]} : {data["goals-conceded"]}</Td>
                             <Td isNumeric>{data.points}</Td>
                         </Tr>
+                    ))}  */}
+                    {table.reverse().map(({ data }, index) => (
+                        <Tr key={index} backgroundColor={index < 4 ? 'green.300' : index === table.length - 1 ? 'red.300' : ''}>
+                            <Td>{index + 1}</Td>
+                            <Td>{data[0] === 'Slovensko' ? <strong>{data[0]}</strong> : data[0]}</Td>
+                            <Td isNumeric>{data[1]["matches"]}</Td>
+                            <Td isNumeric>{data[1]["wins"]}</Td>
+                            <Td isNumeric>{data[1]["winsOT"]}</Td>
+                            <Td isNumeric>{data[1]["loses"]}</Td>
+                            <Td isNumeric>{data[1]["losesOT"]}</Td>
+                            <Td isNumeric>{data[1]["goals-scored"]} : {data[1]["goals-conceded"]}</Td>
+                            <Td isNumeric>{data[1]["points"]}</Td>
+                        </Tr>
                     ))}
+
                 </Tbody>
             </Table>
         </TableContainer>

@@ -10,6 +10,7 @@ function Footer() {
             <Link href='https://www.paypal.com/donate/?hosted_button_id=KNGC2UNL6PX7G' isExternal style={{color: 'white'}}>
                 Podporiť projekt <ExternalLinkIcon mx='2px' />
             </Link>
+            <Text color={'white'} position={'absolute'} right={5}>v 1.4</Text>
         </HStack>
     )
 }
