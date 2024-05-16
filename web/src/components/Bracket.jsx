@@ -8,7 +8,7 @@ import { playOffBracket, thirdPlaceBracket } from '../playoff'
 
 function Bracket() {
 
-    document.title= "Play off"
+    document.title = "Play off"
 
     const whiteTheme = createTheme({
         textColor: { main: '#0000', highlighted: '#07090D', dark: '#3E414D' },
@@ -47,21 +47,22 @@ function Bracket() {
     const { colorMode } = useColorMode();
 
     return (
-        <Box style={{ overflowX: 'auto' }} minHeight={"100vh"} position={'relative'}>
+        <Box minHeight="100vh" overflow="hidden">
             <Header />
-            <HStack>
-                <SingleEliminationBracket
-                    matches={playOffBracket}
-                    matchComponent={Match}
-                    theme={colorMode === "dark" ? darkTheme : whiteTheme}
-                />
-                <SingleEliminationBracket
-                    matches={thirdPlaceBracket}
-                    matchComponent={Match}
-
-                    theme={colorMode === "dark" ? darkTheme : whiteTheme}
-                />
-            </HStack>
+            <Box style={{ overflowX: 'auto' }}>
+                <HStack>
+                    <SingleEliminationBracket
+                        matches={playOffBracket}
+                        matchComponent={Match}
+                        theme={colorMode === "dark" ? darkTheme : whiteTheme}
+                    />
+                    <SingleEliminationBracket
+                        matches={thirdPlaceBracket}
+                        matchComponent={Match}
+                        theme={colorMode === "dark" ? darkTheme : whiteTheme}
+                    />
+                </HStack>
+            </Box>
             <Footer />
         </Box>
     )
