@@ -1,0 +1,191 @@
+{
+    "playOffBracket": [
+        {
+            "id": 0,
+            "nextMatchId": 4,
+            "tournamentRoundText": "1",
+            "startTime": "23.5.2024 16:20",
+            "state": "DONE",
+            "participants": [
+                {
+                    "id": "1A",
+                    "resultText": "-",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "1A"
+                },
+                {
+                    "id": "4B",
+                    "resultText": "-",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "4B"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "nextMatchId": 4,
+            "tournamentRoundText": "1",
+            "startTime": "23.5.2024 20:20",
+            "state": "DONE",
+            "participants": [
+                {
+                    "id": "2A",
+                    "resultText": "-",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "2A"
+                },
+                {
+                    "id": "3B",
+                    "resultText": "-",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "3B"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "nextMatchId": 5,
+            "tournamentRoundText": "1",
+            "startTime": "23.5.2024 16:20",
+            "state": "DONE",
+            "participants": [
+                {
+                    "id": "3A",
+                    "resultText": "-",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "3A"
+                },
+                {
+                    "id": "2B",
+                    "resultText": "-",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "2B"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "nextMatchId": 5,
+            "tournamentRoundText": "1",
+            "startTime": "23.5.2024 20:20",
+            "state": "DONE",
+            "participants": [
+                {
+                    "id": "4A",
+                    "resultText": "-",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "4A"
+                },
+                {
+                    "id": "1B",
+                    "resultText": "-",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "1B"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "nextMatchId": 6,
+            "tournamentRoundText": "1",
+            "startTime": "25.5.2024 14:20",
+            "state": "DONE",
+            "participants": [
+                {
+                    "id": "semi1",
+                    "resultText": "-",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "TBA"
+                },
+                {
+                    "id": "semi2",
+                    "resultText": "-",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "TBA"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "nextMatchId": 6,
+            "tournamentRoundText": "1",
+            "startTime": "25.5.2024 18:20",
+            "state": "DONE",
+            "participants": [
+                {
+                    "id": "semi3",
+                    "resultText": "-",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "TBA"
+                },
+                {
+                    "id": "semi4",
+                    "resultText": "-",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "TBA"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "nextMatchId": null,
+            "tournamentRoundText": "Finále",
+            "startTime": "26.5.2024 20:20",
+            "state": "DONE",
+            "participants": [
+                {
+                    "id": "final1",
+                    "resultText": "-",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "TBA"
+                },
+                {
+                    "id": "final2",
+                    "resultText": "-",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "TBA"
+                }
+            ]
+        }
+    ],
+    "thirdPlaceBracket": [
+        {
+            "id": 0,
+            "name": "Boj o tretie miesto",
+            "nextMatchId": null,
+            "tournamentRoundText": "Boj o tretie miesto",
+            "startTime": "26.5.2024 15:20",
+            "state": "DONE",
+            "participants": [
+                {
+                    "id": "final3",
+                    "resultText": "-",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "TBA"
+                },
+                {
+                    "id": "final4",
+                    "resultText": "-",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "TBA"
+                }
+            ]
+        }
+    ]
+}

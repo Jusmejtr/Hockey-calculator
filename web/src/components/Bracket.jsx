@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from './Header'
 import { SingleEliminationBracket, Match, createTheme } from '@g-loot/react-tournament-brackets';
-import { Box, HStack, useColorMode } from '@chakra-ui/react';
+import { Box, Center, HStack, Spinner, Text, useColorMode } from '@chakra-ui/react';
 import Footer from './Footer';
+import axios from 'axios';
 
-import { playOffBracket, thirdPlaceBracket } from '../playoff'
 
 function Bracket() {
 
-    document.title = "Play off"
+    document.title = "Hokejová kalkulačka - Play off"
 
     const whiteTheme = createTheme({
         textColor: { main: '#0000', highlighted: '#07090D', dark: '#3E414D' },
@@ -46,22 +46,71 @@ function Bracket() {
 
     const { colorMode } = useColorMode();
 
+    const [playOffData, setPlayOffData] = useState([]);
+    const [thirdPlaceData, setThirdPlaceData] = useState([]);
+
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState({
+        message: '',
+        isError: false
+    });
+
+    useEffect(() => {
+        const fetchMatches = () => {
+            axios.get('/play-off')
+                .then((res) => {
+                    if (res.status === 200) {
+                        setPlayOffData(res.data.playOffBracket);
+                        setThirdPlaceData(res.data.thirdPlaceBracket);
+                        setLoading(false);
+                    } else {
+                        setError(prevState => ({
+                            ...prevState,
+                            isError: true,
+                            message: `Failed to fetch matches: ${res.statusText}`
+                        }))
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                    setLoading(false);
+                    setError(prevState => ({
+                        ...prevState,
+                        isError: true,
+                        message: 'An error occurred while fetching data.'
+                    }));
+                });
+        };
+
+        fetchMatches();
+    }, []);
+
     return (
         <Box minHeight="100vh" overflow="hidden">
             <Header />
             <Box style={{ overflowX: 'auto' }}>
-                <HStack>
-                    <SingleEliminationBracket
-                        matches={playOffBracket}
-                        matchComponent={Match}
-                        theme={colorMode === "dark" ? darkTheme : whiteTheme}
-                    />
-                    <SingleEliminationBracket
-                        matches={thirdPlaceBracket}
-                        matchComponent={Match}
-                        theme={colorMode === "dark" ? darkTheme : whiteTheme}
-                    />
-                </HStack>
+                {loading ? (
+                    <Center>
+                        <Spinner size={'lg'} />
+                    </Center>
+                ) : error.isError ? (
+                    <Center>
+                        <Text>{error.message}</Text>
+                    </Center>
+                ) : (
+                    <HStack>
+                        <SingleEliminationBracket
+                            matches={playOffData}
+                            matchComponent={Match}
+                            theme={colorMode === "dark" ? darkTheme : whiteTheme}
+                        />
+                        <SingleEliminationBracket
+                            matches={thirdPlaceData}
+                            matchComponent={Match}
+                            theme={colorMode === "dark" ? darkTheme : whiteTheme}
+                        />
+                    </HStack>
+                )}
             </Box>
             <Footer />
         </Box>

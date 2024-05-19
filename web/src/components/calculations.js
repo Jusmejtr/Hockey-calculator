@@ -50,38 +50,6 @@ export function calculateGroup(table, setTable, matches) {
             }
         }
     });
-
-    console.log(updatedTable);
-
-    // Nová časť na zoradenie tímov s rovnakým počtom bodov
-    // Object.keys(updatedTable).forEach(team => {
-    //     const samePointsTeams = Object.entries(updatedTable).filter(([otherTeam, data]) => otherTeam !== team && data.points === updatedTable[team].points);
-
-    //     if (samePointsTeams.length >= 2) {
-    //         const miniTable = samePointsTeams.map(([otherTeam, data]) => ({
-    //             team: otherTeam,
-    //             goalDifference: data['goals-scored'] - data['goals-conceded'],
-    //             goalsScored: data['goals-scored']
-    //         }));
-
-    //         miniTable.sort((a, b) => {
-    //             if (a.goalDifference !== b.goalDifference) {
-    //                 return b.goalDifference - a.goalDifference;
-    //             } else if (updatedTable[team][a.team] === 'W') {
-    //                 return -1;
-    //             } else if (updatedTable[team][b.team] === 'W') {
-    //                 return 1;
-    //             } else {
-    //                 return b.goalsScored - a.goalsScored;
-    //             }
-    //         });
-
-    //         miniTable.forEach((miniTableRow, index) => {
-    //             const rank = updatedTable[miniTableRow.team].matches === 0 ? '-' : index + 1;
-    //             updatedTable[miniTableRow.team].rank = rank;
-    //         });
-    //     }
-    // });
-
+    
     setTable(updatedTable);
 }

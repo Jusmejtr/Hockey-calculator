@@ -13,7 +13,7 @@ function Footer() {
                 </Link>
             </HStack>
             <HStack>
-                <Text color={'white'}>v 1.5</Text>
+                <Text color={'white'}>v 1.6</Text>
                 <Text color={'white'}>&copy; 2024</Text>
             </HStack>
         </VStack>
