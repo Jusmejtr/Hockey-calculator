@@ -1,6 +1,8 @@
 {
   "name": "hokejovakalkulacka",
-  "version": "0.1.0",
+  "version": "1.6",
+  "description": "Hockey calculator, you can calculate who advances and who does not",
+  "author": "Jusmejtr",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
