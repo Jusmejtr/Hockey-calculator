@@ -6,18 +6,19 @@
             "tournamentRoundText": "1",
             "startTime": "23.5.2024 16:20",
             "state": "DONE",
+            "name": "",
             "participants": [
                 {
                     "id": "1A",
-                    "resultText": "-",
+                    "resultText": "4",
                     "isWinner": false,
                     "status": null,
                     "name": "1A"
                 },
                 {
                     "id": "4B",
-                    "resultText": "-",
-                    "isWinner": false,
+                    "resultText": "5",
+                    "isWinner": true,
                     "status": null,
                     "name": "4B"
                 }
@@ -29,6 +30,7 @@
             "tournamentRoundText": "1",
             "startTime": "23.5.2024 20:20",
             "state": "DONE",
+            "name": "",
             "participants": [
                 {
                     "id": "2A",
@@ -52,6 +54,7 @@
             "tournamentRoundText": "1",
             "startTime": "23.5.2024 16:20",
             "state": "DONE",
+            "name": "",
             "participants": [
                 {
                     "id": "3A",
@@ -75,6 +78,7 @@
             "tournamentRoundText": "1",
             "startTime": "23.5.2024 20:20",
             "state": "DONE",
+            "name": "",
             "participants": [
                 {
                     "id": "4A",
@@ -98,6 +102,7 @@
             "tournamentRoundText": "1",
             "startTime": "25.5.2024 14:20",
             "state": "DONE",
+            "name": "",
             "participants": [
                 {
                     "id": "semi1",
@@ -121,6 +126,7 @@
             "tournamentRoundText": "1",
             "startTime": "25.5.2024 18:20",
             "state": "DONE",
+            "name": "",
             "participants": [
                 {
                     "id": "semi3",
@@ -144,6 +150,7 @@
             "tournamentRoundText": "Finále",
             "startTime": "26.5.2024 20:20",
             "state": "DONE",
+            "name": "",
             "participants": [
                 {
                     "id": "final1",
@@ -165,11 +172,11 @@
     "thirdPlaceBracket": [
         {
             "id": 0,
-            "name": "Boj o tretie miesto",
             "nextMatchId": null,
             "tournamentRoundText": "Boj o tretie miesto",
             "startTime": "26.5.2024 15:20",
             "state": "DONE",
+            "name": "",
             "participants": [
                 {
                     "id": "final3",

@@ -8,7 +8,7 @@ import axios from 'axios';
 
 function Bracket() {
 
-    document.title = "Hokejová kalkulačka - Play off"
+    document.title = "Hokejová kalkulačka - Play off";
 
     const whiteTheme = createTheme({
         textColor: { main: '#0000', highlighted: '#07090D', dark: '#3E414D' },
@@ -36,7 +36,7 @@ function Bracket() {
         },
         border: {
             color: '#CED1F2',
-            highlightedColor: '#da96c6',
+            highlightedColor: '#46a2f8',
         },
         roundHeader: { backgroundColor: '#da96c6', fontColor: '#000' },
         connectorColor: '#cff2ce',
@@ -54,6 +54,25 @@ function Bracket() {
         message: '',
         isError: false
     });
+
+    const headerText = (currentRoundNumber, roundsTotalNumber) => {
+        if (currentRoundNumber === roundsTotalNumber) {
+            return "Finále";
+        } else if (currentRoundNumber === roundsTotalNumber - 1) {
+            return "Semifinále";
+        } else if (currentRoundNumber === roundsTotalNumber - 2) {
+            return "Štvrťfinále";
+        }else{
+            return "Round " + currentRoundNumber;
+        }
+    };
+    const headerTextThirdPlace = (currentRoundNumber, roundsTotalNumber) => {
+        if (currentRoundNumber === roundsTotalNumber) {
+            return "Boj o tretie miesto";
+        }else{
+            return "Round " + currentRoundNumber;
+        }
+    };
 
     useEffect(() => {
         const fetchMatches = () => {
@@ -103,11 +122,25 @@ function Bracket() {
                             matches={playOffData}
                             matchComponent={Match}
                             theme={colorMode === "dark" ? darkTheme : whiteTheme}
+                            options={{
+                                style: {
+                                    roundHeader: {
+                                        roundTextGenerator: headerText,
+                                    }
+                                }
+                            }}
                         />
                         <SingleEliminationBracket
                             matches={thirdPlaceData}
                             matchComponent={Match}
                             theme={colorMode === "dark" ? darkTheme : whiteTheme}
+                            options={{
+                                style: {
+                                    roundHeader: {
+                                        roundTextGenerator: headerTextThirdPlace,
+                                    }
+                                }
+                            }}
                         />
                     </HStack>
                 )}
