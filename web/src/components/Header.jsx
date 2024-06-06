@@ -21,7 +21,7 @@ function Header() {
         window.open("https://forms.gle/wTf5hgG6nnvBkPhG6", "_blank");
     }
     return (
-        <Stack justify={'space-around'} bgColor={'#2254dd'} padding={3} direction={{ base: 'column', md: 'row' }} textAlign={{ base: 'center' }}>
+        <Stack as={'header'} justify={'space-around'} bgColor={'#2254dd'} padding={3} direction={{ base: 'column', md: 'row' }} textAlign={{ base: 'center' }}>
             <Text as={'h1'} fontSize={'xx-large'} onClick={handleLogo} cursor={'pointer'} color={'white'} fontFamily={'sans-serif'}>Hokejová kalkulačka</Text>
             <Box>
                 <Button colorScheme='orange' size={{base: 'sm', md: 'md'}} mr={5} onClick={handleButton}>

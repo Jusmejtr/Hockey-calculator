@@ -4,7 +4,7 @@ import React from 'react'
 
 function Footer() {
     return (
-        <VStack backgroundColor={'rgba(0,0,0,0.8)'} spacing={1} position={'absolute'} bottom={0} width={'100%'} justify={'center'}>
+        <VStack as={'footer'} backgroundColor={'rgba(0,0,0,0.8)'} spacing={1} position={'absolute'} bottom={0} width={'100%'} justify={'center'}>
 
             <HStack >
                 <Text color={'white'}>Created with 💛</Text>
