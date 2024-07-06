@@ -1,4 +1,4 @@
 export const axiosConfig = {
-    baseURL: 'https://hokejovakalkulacka.sk/api',
+    baseURL: 'https://hokejovakalkulacka.sk/api/kalkulacka',
 };
   

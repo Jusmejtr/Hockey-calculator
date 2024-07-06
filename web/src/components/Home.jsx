@@ -50,7 +50,7 @@ function App() {
     return (
         <Box minHeight={"100vh"} position={'relative'}>
             <Header />
-            {loading ? (
+            {/* {loading ? (
                 <Center>
                     <Spinner size={'lg'} />
                 </Center>
@@ -60,7 +60,8 @@ function App() {
                 </Center>
             ) : (
                 <MatchSchedule data={matches} />
-            )}
+            )} */}
+            <MatchSchedule />
             <Footer/>
         </Box>
     );

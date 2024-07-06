@@ -2,7 +2,6 @@ import React from 'react';
 import { Table, TableContainer, Tbody, Th, Thead, Tr, Td } from '@chakra-ui/react';
 
 function HockeyTable({ group, matches }) {
-
     const teamPoints = Object.keys(group).map(team => {
         const points = group[team].points;
         return { team, points };
@@ -13,12 +12,9 @@ function HockeyTable({ group, matches }) {
         return acc;
     }, {});
 
-    var table = [];
+    const table = [];
 
-    function updateStats(miniTable, homeTeam, awayTeam, homeGoals, awayGoals, overtime) {
-        if (overtime == null) {
-            overtime = false;
-        }
+    function updateStats(miniTable, homeTeam, awayTeam, homeGoals, awayGoals, overtime = false) {
         miniTable[homeTeam]["goals-scored"] += homeGoals;
         miniTable[homeTeam]["goals-conceded"] += awayGoals;
         miniTable[awayTeam]["goals-scored"] += awayGoals;
@@ -28,13 +24,11 @@ function HockeyTable({ group, matches }) {
             if (homeGoals > awayGoals) {
                 miniTable[homeTeam]["winsOT"]++;
                 miniTable[awayTeam]["losesOT"]++;
-
                 miniTable[homeTeam]["points"] += 2;
                 miniTable[awayTeam]["points"] += 1;
             } else {
                 miniTable[homeTeam]["losesOT"]++;
                 miniTable[awayTeam]["winsOT"]++;
-
                 miniTable[homeTeam]["points"] += 1;
                 miniTable[awayTeam]["points"] += 2;
             }
@@ -42,12 +36,10 @@ function HockeyTable({ group, matches }) {
             if (homeGoals > awayGoals) {
                 miniTable[homeTeam]["wins"]++;
                 miniTable[awayTeam]["loses"]++;
-
                 miniTable[homeTeam]["points"] += 3;
             } else {
                 miniTable[homeTeam]["loses"]++;
                 miniTable[awayTeam]["wins"]++;
-
                 miniTable[awayTeam]["points"] += 3;
             }
         }
@@ -57,25 +49,30 @@ function HockeyTable({ group, matches }) {
         return table[team]["goals-scored"] - table[team]["goals-conceded"];
     }
 
+    function getTeamsWithPoints(group, targetPoints) {
+        return Object.keys(group).filter(team => group[team].points === targetPoints);
+    }
+
+    function getTeamData(group, teamName) {
+        return [teamName, group[teamName]];
+    }
 
     // key - pocet bodov
-    // pointsCount[key] - pocet krajin s tymto poctom bodov 
+    // pointsCount[key] - pocet krajin s tymto poctom bodov
     for (let key in pointsCount) {
-        let teamNames = getTeamsWithPoints(group, parseInt(key));
+        const teamNames = getTeamsWithPoints(group, parseInt(key));
         if (pointsCount[key] === 1) {
             table.push({ data: getTeamData(group, teamNames[0]) });
         } else if (pointsCount[key] === 2) {
             if (group[teamNames[0]][teamNames[1]] === "W") {
                 table.push({ data: getTeamData(group, teamNames[1]) });
-
                 table.push({ data: getTeamData(group, teamNames[0]) });
             } else {
                 table.push({ data: getTeamData(group, teamNames[0]) });
-
                 table.push({ data: getTeamData(group, teamNames[1]) });
             }
         } else {
-            var miniTable = {};
+            const miniTable = {};
             teamNames.forEach(team => {
                 miniTable[team] = {
                     "wins": 0,
@@ -99,29 +96,18 @@ function HockeyTable({ group, matches }) {
             const allEqual = pointsArray.every((val, i, arr) => val === arr[0]);
 
             if (allEqual) {
-                let sortedTeams = Object.keys(miniTable).sort((a, b) => goalDifference(miniTable, a) - goalDifference(miniTable, b));
+                let sortedTeams = Object.keys(miniTable).sort((a, b) => goalDifference(miniTable, b) - goalDifference(miniTable, a));
                 sortedTeams.forEach(team => {
                     table.push({ data: getTeamData(group, team) });
                 });
             } else {
-                let sortedTeams = Object.entries(miniTable).sort((a, b) => a[1].points - b[1].points);
+                let sortedTeams = Object.entries(miniTable).sort((a, b) => b[1].points - a[1].points);
                 sortedTeams.forEach(team => {
                     table.push({ data: getTeamData(group, team[0]) });
                 });
             }
         }
     }
-
-    function getTeamsWithPoints(group, targetPoints) {
-        const teams = Object.keys(group).filter(team => group[team].points === targetPoints);
-        return teams;
-    }
-
-    function getTeamData(group, teamName) {
-        return [teamName, group[teamName]];
-    }
-
-
 
     return (
         <TableContainer width={"100%"}>
@@ -140,8 +126,6 @@ function HockeyTable({ group, matches }) {
                     </Tr>
                 </Thead>
                 <Tbody>
-
-
                     {table.reverse().map(({ data }, index) => (
                         <Tr key={index} backgroundColor={index < 4 ? 'green.300' : index === table.length - 1 ? 'red.300' : ''}>
                             <Td>{index + 1}</Td>
@@ -155,7 +139,6 @@ function HockeyTable({ group, matches }) {
                             <Td isNumeric>{data[1]["points"]}</Td>
                         </Tr>
                     ))}
-
                 </Tbody>
             </Table>
         </TableContainer>

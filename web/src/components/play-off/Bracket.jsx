@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Header from './Header'
+import Header from '../Header'
 import { SingleEliminationBracket, Match, createTheme } from '@g-loot/react-tournament-brackets';
 import { Box, Center, HStack, Spinner, Text, useColorMode } from '@chakra-ui/react';
-import Footer from './Footer';
+import Footer from '../Footer';
 import axios from 'axios';
 
 

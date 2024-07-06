@@ -1,50 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Checkbox, FormControl, FormLabel, HStack, Input, Stack, Switch, Text, Tooltip, VStack, useColorModeValue } from '@chakra-ui/react';
+import { Box, Center, Checkbox, FormControl, FormLabel, HStack, Input, Spinner, Stack, Switch, Text, Tooltip, VStack, useColorModeValue } from '@chakra-ui/react';
 import { useColorMode } from '@chakra-ui/react';
-import ReactCountryFlag from "react-country-flag"
+import useSWR from 'swr'
 
-import countries from './countries'
-import HockeyTable from './HockeyTable';
+import HockeyTable from './HockeyTable'
 import { calculateGroup } from './calculations'
+import { initTeamData, groupACountries, groupBCountries } from './group-data'
+import { fetcher } from '../utils/fetcher'
+import countryFlags from '../utils/flags'
 
-const MatchSchedule = ({ data }) => {
+const MatchSchedule = () => {
     const { colorMode } = useColorMode();
+
+    const { data, error } = useSWR('/all-matches', fetcher);
 
     const [locked, setLocked] = useState(true);
     const [showFlgs, setShowFlags] = useState(true);
 
-    const initialTeamData = {
-        "matches": 0,
-        "wins": 0,
-        "winsOT": 0,
-        "loses": 0,
-        "losesOT": 0,
-        "goals-scored": 0,
-        "goals-conceded": 0,
-        "points": 0
+    const generateInitialScores = (teams) => {
+        const initialScores = {};
+        teams.forEach(team => {
+            initialScores[team] = { ...initTeamData };
+        });
+        return initialScores;
     };
 
-    const initialTableAScore = {
-        "Švajčiarsko": { ...initialTeamData },
-        "Nórsko": { ...initialTeamData },
-        "Česko": { ...initialTeamData },
-        "Fínsko": { ...initialTeamData },
-        "Veľká Británia": { ...initialTeamData },
-        "Kanada": { ...initialTeamData },
-        "Rakúsko": { ...initialTeamData },
-        "Dánsko": { ...initialTeamData }
-    };
-
-    const initialTableBScore = {
-        "Slovensko": { ...initialTeamData },
-        "Nemecko": { ...initialTeamData },
-        "Švédsko": { ...initialTeamData },
-        "USA": { ...initialTeamData },
-        "Francúzsko": { ...initialTeamData },
-        "Kazachstan": { ...initialTeamData },
-        "Poľsko": { ...initialTeamData },
-        "Lotyšsko": { ...initialTeamData }
-    };
+    const initialTableAScore = generateInitialScores(groupACountries);
+    const initialTableBScore = generateInitialScores(groupBCountries);
 
     const [tableAScore, setTableAScore] = useState(initialTableAScore);
     const [tableBScore, setTableBScore] = useState(initialTableBScore);
@@ -52,32 +34,22 @@ const MatchSchedule = ({ data }) => {
 
     const borderColor = useColorModeValue("rgba(0,0,0,0.3)", "rgba(255,255,255,0.3)");
 
-    const groupA = data.matches['group-A'];
-    const groupB = data.matches['group-B'];
-
     const handleInputChange = (event, matchIndex, team, group) => {
         var { value } = event.target;
 
-
-
         if (value === '') {
-            if (team === 'home') {
-                data.matches[group][matchIndex].home_goal = null;
-            } else {
-                data.matches[group][matchIndex].away_goal = null;
-            }
+            data.matches[group][matchIndex][`${team}_goal`] = null;
         } else {
-            if (team === 'home') {
-                data.matches[group][matchIndex].home_goal = parseInt(value);
-            } else {
-                data.matches[group][matchIndex].away_goal = parseInt(value);
-            }
-
+            data.matches[group][matchIndex][`${team}_goal`] = parseInt(value);
         }
-        data.matches[group][matchIndex].edited = true;
-        calculateGroup(initialTableAScore, setTableAScore, data.matches['group-A']);
-        calculateGroup(initialTableBScore, setTableBScore, data.matches['group-B']);
 
+        data.matches[group][matchIndex].edited = true;
+
+        calculateGroup(
+            group === 'group-A' ? initialTableAScore : initialTableBScore,
+            group === 'group-A' ? setTableAScore : setTableBScore,
+            data.matches[group]
+        );
     };
 
     const handleCheckboxChange = (event, matchIndex, group) => {
@@ -89,19 +61,20 @@ const MatchSchedule = ({ data }) => {
             data.matches[group][matchIndex].overtime = false;
         }
 
-
-        calculateGroup(initialTableAScore, setTableAScore, data.matches['group-A']);
-        calculateGroup(initialTableBScore, setTableBScore, data.matches['group-B']);
-
-
+        calculateGroup(
+            group === 'group-A' ? initialTableAScore : initialTableBScore,
+            group === 'group-A' ? setTableAScore : setTableBScore,
+            data.matches[group]
+        );
     };
 
 
     useEffect(() => {
-        calculateGroup(initialTableAScore, setTableAScore, data.matches['group-A']);
-        calculateGroup(initialTableBScore, setTableBScore, data.matches['group-B']);
-
-    }, []);
+        if (data) {
+            calculateGroup(initialTableAScore, setTableAScore, data.matches['group-A']);
+            calculateGroup(initialTableBScore, setTableBScore, data.matches['group-B']);
+        }
+    }, [data]);
 
     const renderMatchesWithDate = (matches, group) => {
         let currentDate = null;
@@ -122,25 +95,9 @@ const MatchSchedule = ({ data }) => {
                         justify={'center'}
                     >
                         <Text padding={1} pr={5} display={{ base: 'none', md: 'block' }}>{match.time}</Text>
-                        {showFlgs ? (
-                            (window.innerWidth < 768) ? (
-                                <ReactCountryFlag
-                                    countryCode={countries[match.home_team]}
-                                    svg
-                                    style={{ fontSize: '1.5rem' }}
-                                    alt={match.home_team}
-                                />
-                            ) : (
-                                <ReactCountryFlag
-                                    countryCode={countries[match.home_team]}
-                                    svg
-                                    style={{ fontSize: '2rem' }}
-                                    alt={match.home_team}
-                                />
-                            )
-                        ) : null
 
-                        }
+                        {showFlgs ? countryFlags(match.home_team) : null}
+
                         <Text fontWeight={isHomeTeamSlovakia ? 'bold' : 'normal'} fontSize={{ base: '95%', sm: 'large' }} width={"25%"} textAlign={'right'}>{match.home_team}</Text>
                         <Input
                             width={'6%'}
@@ -170,25 +127,8 @@ const MatchSchedule = ({ data }) => {
                             min={0}
                         />
                         <Text fontWeight={isAwayTeamSlovakia ? 'bold' : 'normal'} fontSize={{ base: '95%', sm: 'large' }} width={"25%"} textAlign={'left'}>{match.away_team}</Text>
-                        {showFlgs ? (
-                            (window.innerWidth < 768) ? (
-                                <ReactCountryFlag
-                                    countryCode={countries[match.away_team]}
-                                    svg
-                                    style={{ fontSize: '1.5rem' }}
-                                    alt={match.away_team}
-                                />
-                            ) : (
-                                <ReactCountryFlag
-                                    countryCode={countries[match.away_team]}
-                                    svg
-                                    style={{ fontSize: '2rem' }}
-                                    alt={match.away_team}
-                                />
-                            )
-                        ) : null
 
-                        }
+                        {showFlgs ? countryFlags(match.away_team) : null}
 
                         <Checkbox
                             readOnly={locked && match.edited == null}
@@ -203,6 +143,22 @@ const MatchSchedule = ({ data }) => {
             );
         });
     };
+
+    if (error) {
+        return (
+            <Center>
+                <Text>An error occurred while fetching data: {error.message}</Text>
+            </Center>
+        );
+    }
+
+    if (!data) {
+        return (
+            <Center>
+                <Spinner size="lg" />
+            </Center>
+        );
+    }
 
     return (
         <div>
@@ -227,7 +183,7 @@ const MatchSchedule = ({ data }) => {
                     <Box fontWeight="bold" fontSize="xl" mb="4" >
                         <Text as={'h2'}>Skupina A</Text>
                     </Box>
-                    {renderMatchesWithDate(groupA, 'group-A')}
+                    {renderMatchesWithDate(data.matches['group-A'], 'group-A')}
                     <HockeyTable group={tableAScore} matches={data.matches["group-A"]} />
                 </VStack>
 
@@ -235,7 +191,7 @@ const MatchSchedule = ({ data }) => {
                     <Box fontWeight="bold" fontSize="xl" mb="4">
                         <Text as={'h2'}>Skupina B</Text>
                     </Box>
-                    {renderMatchesWithDate(groupB, 'group-B')}
+                    {renderMatchesWithDate(data.matches['group-B'], 'group-B')}
                     <HockeyTable group={tableBScore} matches={data.matches["group-B"]} />
 
                 </VStack>

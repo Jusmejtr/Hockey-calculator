@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
-import Bracket from "./Bracket";
+import Bracket from "./play-off/Bracket";
 
 
 const Views = () => {
