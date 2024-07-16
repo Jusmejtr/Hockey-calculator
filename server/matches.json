@@ -7,8 +7,8 @@
                 "location": "Praha",
                 "home_team": "Švajčiarsko",
                 "away_team": "Nórsko",
-                "home_goal": null,
-                "away_goal": null,
+                "home_goal": 5,
+                "away_goal": 2,
                 "overtime": false
             },
             {
@@ -17,9 +17,9 @@
                 "location": "Praha",
                 "home_team": "Česko",
                 "away_team": "Fínsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 1,
+                "away_goal": 0,
+                "overtime": true
             },
             {
                 "date": "11.05.2024",
@@ -27,9 +27,9 @@
                 "location": "Praha",
                 "home_team": "Veľká Británia",
                 "away_team": "Kanada",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 2,
+                "away_goal": 4,
+                "overtime": false
             },
             {
                 "date": "11.05.2024",
@@ -37,9 +37,9 @@
                 "location": "Praha",
                 "home_team": "Rakúsko",
                 "away_team": "Dánsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 1,
+                "away_goal": 5,
+                "overtime": false
             },
             {
                 "date": "11.05.2024",
@@ -47,9 +47,9 @@
                 "location": "Praha",
                 "home_team": "Nórsko",
                 "away_team": "Česko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 3,
+                "away_goal": 6,
+                "overtime": false
             },
             {
                 "date": "12.05.2024",
@@ -57,9 +57,9 @@
                 "location": "Praha",
                 "home_team": "Fínsko",
                 "away_team": "Veľká Británia",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 8,
+                "away_goal": 0,
+                "overtime": false
             },
             {
                 "date": "12.05.2024",
@@ -67,9 +67,9 @@
                 "location": "Praha",
                 "home_team": "Dánsko",
                 "away_team": "Kanada",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 1,
+                "away_goal": 5,
+                "overtime": false
             },
             {
                 "date": "12.05.2024",
@@ -77,9 +77,9 @@
                 "location": "Praha",
                 "home_team": "Rakúsko",
                 "away_team": "Švajčiarsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 5,
+                "away_goal": 6,
+                "overtime": false
             },
             {
                 "date": "13.05.2024",
@@ -87,9 +87,9 @@
                 "location": "Praha",
                 "home_team": "Nórsko",
                 "away_team": "Fínsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 1,
+                "away_goal": 4,
+                "overtime": false
             },
             {
                 "date": "13.05.2024",
@@ -97,9 +97,9 @@
                 "location": "Praha",
                 "home_team": "Švajčiarsko",
                 "away_team": "Česko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 2,
+                "away_goal": 1,
+                "overtime": true
             },
             {
                 "date": "14.05.2024",
@@ -107,9 +107,9 @@
                 "location": "Praha",
                 "home_team": "Dánsko",
                 "away_team": "Nórsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 0,
+                "away_goal": 2,
+                "overtime": false
             },
             {
                 "date": "14.05.2024",
@@ -117,9 +117,9 @@
                 "location": "Praha",
                 "home_team": "Kanada",
                 "away_team": "Rakúsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 7,
+                "away_goal": 6,
+                "overtime": true
             },
             {
                 "date": "15.05.2024",
@@ -127,9 +127,9 @@
                 "location": "Praha",
                 "home_team": "Česko",
                 "away_team": "Dánsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 7,
+                "away_goal": 4,
+                "overtime": false
             },
             {
                 "date": "15.05.2024",
@@ -137,9 +137,9 @@
                 "location": "Praha",
                 "home_team": "Švajčiarsko",
                 "away_team": "Veľká Británia",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 3,
+                "away_goal": 0,
+                "overtime": false
             },
             {
                 "date": "16.05.2024",
@@ -147,9 +147,9 @@
                 "location": "Praha",
                 "home_team": "Fínsko",
                 "away_team": "Rakúsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 2,
+                "away_goal": 3,
+                "overtime": false
             },
             {
                 "date": "16.05.2024",
@@ -157,9 +157,9 @@
                 "location": "Praha",
                 "home_team": "Kanada",
                 "away_team": "Nórsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 4,
+                "away_goal": 1,
+                "overtime": false
             },
             {
                 "date": "17.05.2024",
@@ -167,9 +167,9 @@
                 "location": "Praha",
                 "home_team": "Veľká Británia",
                 "away_team": "Dánsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 1,
+                "away_goal": 4,
+                "overtime": false
             },
             {
                 "date": "17.05.2024",
@@ -177,9 +177,9 @@
                 "location": "Praha",
                 "home_team": "Česko",
                 "away_team": "Rakúsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 4,
+                "away_goal": 0,
+                "overtime": false
             },
             {
                 "date": "18.05.2024",
@@ -187,9 +187,9 @@
                 "location": "Praha",
                 "home_team": "Dánsko",
                 "away_team": "Švajčiarsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 0,
+                "away_goal": 8,
+                "overtime": false
             },
             {
                 "date": "18.05.2024",
@@ -197,9 +197,9 @@
                 "location": "Praha",
                 "home_team": "Kanada",
                 "away_team": "Fínsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 5,
+                "away_goal": 3,
+                "overtime": false
             },
             {
                 "date": "18.05.2024",
@@ -207,9 +207,9 @@
                 "location": "Praha",
                 "home_team": "Česko",
                 "away_team": "Veľká Británia",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 4,
+                "away_goal": 1,
+                "overtime": false
             },
             {
                 "date": "19.05.2024",
@@ -217,9 +217,9 @@
                 "location": "Praha",
                 "home_team": "Nórsko",
                 "away_team": "Rakúsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 1,
+                "away_goal": 4,
+                "overtime": false
             },
             {
                 "date": "19.05.2024",
@@ -227,9 +227,9 @@
                 "location": "Praha",
                 "home_team": "Švajčiarsko",
                 "away_team": "Kanada",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 2,
+                "away_goal": 3,
+                "overtime": false
             },
             {
                 "date": "20.05.2024",
@@ -237,9 +237,9 @@
                 "location": "Praha",
                 "home_team": "Veľká Británia",
                 "away_team": "Nórsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 2,
+                "away_goal": 5,
+                "overtime": false
             },
             {
                 "date": "20.05.2024",
@@ -247,9 +247,9 @@
                 "location": "Praha",
                 "home_team": "Fínsko",
                 "away_team": "Dánsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 3,
+                "away_goal": 1,
+                "overtime": false
             },
             {
                 "date": "21.05.2024",
@@ -257,9 +257,9 @@
                 "location": "Praha",
                 "home_team": "Rakúsko",
                 "away_team": "Veľká Británia",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 2,
+                "away_goal": 4,
+                "overtime": false
             },
             {
                 "date": "21.05.2024",
@@ -267,9 +267,9 @@
                 "location": "Praha",
                 "home_team": "Kanada",
                 "away_team": "Česko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 4,
+                "away_goal": 3,
+                "overtime": true
             },
             {
                 "date": "21.05.2024",
@@ -277,9 +277,9 @@
                 "location": "Praha",
                 "home_team": "Fínsko",
                 "away_team": "Švajčiarsko",
-                "home_goal": null,
-                "away_goal": null,
-                "overtime": null
+                "home_goal": 1,
+                "away_goal": 3,
+                "overtime": false
             }
         ],
         "group-B": [
@@ -329,8 +329,8 @@
                 "location": "Ostrava",
                 "home_team": "USA",
                 "away_team": "Nemecko",
-                "home_goal": 4,
-                "away_goal": 2,
+                "home_goal": 6,
+                "away_goal": 1,
                 "overtime": false
             },
             {
@@ -339,8 +339,8 @@
                 "location": "Ostrava",
                 "home_team": "Slovensko",
                 "away_team": "Kazachstan",
-                "home_goal": 4,
-                "away_goal": 3,
+                "home_goal": 6,
+                "away_goal": 2,
                 "overtime": false
             },
             {
@@ -351,7 +351,7 @@
                 "away_team": "Francúzsko",
                 "home_goal": 3,
                 "away_goal": 2,
-                "overtime": false
+                "overtime": true
             },
             {
                 "date": "12.05.2024",
@@ -360,7 +360,7 @@
                 "home_team": "Švédsko",
                 "away_team": "Poľsko",
                 "home_goal": 5,
-                "away_goal": 0,
+                "away_goal": 1,
                 "overtime": false
             },
             {
@@ -369,9 +369,9 @@
                 "location": "Ostrava",
                 "home_team": "USA",
                 "away_team": "Slovensko",
-                "home_goal": 3,
-                "away_goal": 0,
-                "overtime": false
+                "home_goal": 4,
+                "away_goal": 5,
+                "overtime": true
             },
             {
                 "date": "13.05.2024",
@@ -379,8 +379,8 @@
                 "location": "Ostrava",
                 "home_team": "Nemecko",
                 "away_team": "Švédsko",
-                "home_goal": 0,
-                "away_goal": 2,
+                "home_goal": 1,
+                "away_goal": 6,
                 "overtime": false
             },
             {
@@ -389,8 +389,8 @@
                 "location": "Ostrava",
                 "home_team": "Kazachstan",
                 "away_team": "Lotyšsko",
-                "home_goal": 5,
-                "away_goal": 3,
+                "home_goal": 0,
+                "away_goal": 2,
                 "overtime": false
             },
             {
@@ -400,8 +400,8 @@
                 "home_team": "Poľsko",
                 "away_team": "Francúzsko",
                 "home_goal": 2,
-                "away_goal": 1,
-                "overtime": true
+                "away_goal": 4,
+                "overtime": false
             },
             {
                 "date": "15.05.2024",
@@ -409,8 +409,8 @@
                 "location": "Ostrava",
                 "home_team": "Nemecko",
                 "away_team": "Lotyšsko",
-                "home_goal": 2,
-                "away_goal": 0,
+                "home_goal": 8,
+                "away_goal": 1,
                 "overtime": false
             },
             {
@@ -419,7 +419,7 @@
                 "location": "Ostrava",
                 "home_team": "Slovensko",
                 "away_team": "Poľsko",
-                "home_goal": 3,
+                "home_goal": 4,
                 "away_goal": 0,
                 "overtime": false
             },
@@ -429,8 +429,8 @@
                 "location": "Ostrava",
                 "home_team": "Kazachstan",
                 "away_team": "Švédsko",
-                "home_goal": 0,
-                "away_goal": 2,
+                "home_goal": 1,
+                "away_goal": 3,
                 "overtime": false
             },
             {
@@ -439,7 +439,7 @@
                 "location": "Ostrava",
                 "home_team": "USA",
                 "away_team": "Francúzsko",
-                "home_goal": 3,
+                "home_goal": 5,
                 "away_goal": 0,
                 "overtime": false
             },
@@ -449,7 +449,7 @@
                 "location": "Ostrava",
                 "home_team": "Nemecko",
                 "away_team": "Kazachstan",
-                "home_goal": 1,
+                "home_goal": 8,
                 "away_goal": 2,
                 "overtime": false
             },
@@ -459,8 +459,8 @@
                 "location": "Ostrava",
                 "home_team": "Poľsko",
                 "away_team": "USA",
-                "home_goal": 0,
-                "away_goal": 2,
+                "home_goal": 1,
+                "away_goal": 4,
                 "overtime": false
             },
             {
@@ -469,8 +469,8 @@
                 "location": "Ostrava",
                 "home_team": "Lotyšsko",
                 "away_team": "Švédsko",
-                "home_goal": 0,
-                "away_goal": 3,
+                "home_goal": 2,
+                "away_goal": 7,
                 "overtime": false
             },
             {
@@ -479,8 +479,8 @@
                 "location": "Ostrava",
                 "home_team": "Nemecko",
                 "away_team": "Poľsko",
-                "home_goal": 2,
-                "away_goal": 0,
+                "home_goal": 4,
+                "away_goal": 2,
                 "overtime": false
             },
             {
@@ -489,8 +489,8 @@
                 "location": "Ostrava",
                 "home_team": "Francúzsko",
                 "away_team": "Slovensko",
-                "home_goal": 0,
-                "away_goal": 3,
+                "home_goal": 2,
+                "away_goal": 4,
                 "overtime": false
             },
             {
@@ -499,8 +499,8 @@
                 "location": "Ostrava",
                 "home_team": "USA",
                 "away_team": "Kazachstan",
-                "home_goal": 2,
-                "away_goal": 0,
+                "home_goal": 10,
+                "away_goal": 1,
                 "overtime": false
             },
             {
@@ -510,8 +510,8 @@
                 "home_team": "Slovensko",
                 "away_team": "Lotyšsko",
                 "home_goal": 2,
-                "away_goal": 0,
-                "overtime": false
+                "away_goal": 3,
+                "overtime": true
             },
             {
                 "date": "20.05.2024",
@@ -520,7 +520,7 @@
                 "home_team": "Švédsko",
                 "away_team": "Francúzsko",
                 "home_goal": 3,
-                "away_goal": 0,
+                "away_goal": 1,
                 "overtime": false
             },
             {
@@ -529,8 +529,8 @@
                 "location": "Ostrava",
                 "home_team": "Kazachstan",
                 "away_team": "Poľsko",
-                "home_goal": 2,
-                "away_goal": 0,
+                "home_goal": 3,
+                "away_goal": 1,
                 "overtime": false
             },
             {
@@ -539,8 +539,8 @@
                 "location": "Ostrava",
                 "home_team": "Francúzsko",
                 "away_team": "Nemecko",
-                "home_goal": 0,
-                "away_goal": 2,
+                "home_goal": 3,
+                "away_goal": 6,
                 "overtime": false
             },
             {
@@ -549,8 +549,8 @@
                 "location": "Ostrava",
                 "home_team": "Lotyšsko",
                 "away_team": "USA",
-                "home_goal": 0,
-                "away_goal": 2,
+                "home_goal": 3,
+                "away_goal": 6,
                 "overtime": false
             },
             {
@@ -559,8 +559,8 @@
                 "location": "Ostrava",
                 "home_team": "Švédsko",
                 "away_team": "Slovensko",
-                "home_goal": 2,
-                "away_goal": 0,
+                "home_goal": 6,
+                "away_goal": 1,
                 "overtime": false
             }
         ]

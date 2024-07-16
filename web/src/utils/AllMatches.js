@@ -9,7 +9,7 @@ function AllMatches() {
         data: data,
         isLoading,
         isError: error
-      }
+    }
 }
 
 export default AllMatches

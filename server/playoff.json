@@ -6,21 +6,21 @@
             "tournamentRoundText": "1",
             "startTime": "23.5.2024 16:20",
             "state": "DONE",
-            "name": "",
+            "name": "Po predĺžení",
             "participants": [
                 {
-                    "id": "1A",
-                    "resultText": "4",
-                    "isWinner": false,
-                    "status": null,
-                    "name": "1A"
-                },
-                {
-                    "id": "4B",
-                    "resultText": "5",
+                    "id": "Švédsko",
+                    "resultText": "2",
                     "isWinner": true,
                     "status": null,
-                    "name": "4B"
+                    "name": "Švédsko"
+                },
+                {
+                    "id": "Fínsko",
+                    "resultText": "1",
+                    "isWinner": false,
+                    "status": null,
+                    "name": "Fínsko"
                 }
             ]
         },
@@ -33,18 +33,18 @@
             "name": "",
             "participants": [
                 {
-                    "id": "2A",
-                    "resultText": "-",
+                    "id": "USA",
+                    "resultText": "0",
                     "isWinner": false,
                     "status": null,
-                    "name": "2A"
+                    "name": "USA"
                 },
                 {
-                    "id": "3B",
-                    "resultText": "-",
-                    "isWinner": false,
+                    "id": "Česko",
+                    "resultText": "1",
+                    "isWinner": true,
                     "status": null,
-                    "name": "3B"
+                    "name": "Česko"
                 }
             ]
         },
@@ -57,18 +57,18 @@
             "name": "",
             "participants": [
                 {
-                    "id": "3A",
-                    "resultText": "-",
-                    "isWinner": false,
+                    "id": "Kanada",
+                    "resultText": "6",
+                    "isWinner": true,
                     "status": null,
-                    "name": "3A"
+                    "name": "Kanada"
                 },
                 {
-                    "id": "2B",
-                    "resultText": "-",
+                    "id": "Slovensko",
+                    "resultText": "3",
                     "isWinner": false,
                     "status": null,
-                    "name": "2B"
+                    "name": "Slovensko"
                 }
             ]
         },
@@ -81,18 +81,18 @@
             "name": "",
             "participants": [
                 {
-                    "id": "4A",
-                    "resultText": "-",
-                    "isWinner": false,
+                    "id": "Švajčiarsko",
+                    "resultText": "3",
+                    "isWinner": true,
                     "status": null,
-                    "name": "4A"
+                    "name": "Švajčiarsko"
                 },
                 {
-                    "id": "1B",
-                    "resultText": "-",
+                    "id": "Nemecko",
+                    "resultText": "1",
                     "isWinner": false,
                     "status": null,
-                    "name": "1B"
+                    "name": "Nemecko"
                 }
             ]
         },
@@ -105,18 +105,18 @@
             "name": "",
             "participants": [
                 {
-                    "id": "semi1",
-                    "resultText": "-",
+                    "id": "Švédsko",
+                    "resultText": "3",
                     "isWinner": false,
                     "status": null,
-                    "name": "TBA"
+                    "name": "Švédsko"
                 },
                 {
-                    "id": "semi2",
+                    "id": "Česko",
                     "resultText": "-",
-                    "isWinner": false,
+                    "isWinner": true,
                     "status": null,
-                    "name": "TBA"
+                    "name": "Česko"
                 }
             ]
         },
@@ -126,21 +126,21 @@
             "tournamentRoundText": "1",
             "startTime": "25.5.2024 18:20",
             "state": "DONE",
-            "name": "",
+            "name": "Samostatné nájazdy",
             "participants": [
                 {
-                    "id": "semi3",
-                    "resultText": "-",
+                    "id": "Kanada",
+                    "resultText": "2",
                     "isWinner": false,
                     "status": null,
-                    "name": "TBA"
+                    "name": "Kanada"
                 },
                 {
-                    "id": "semi4",
-                    "resultText": "-",
-                    "isWinner": false,
+                    "id": "Švajčiarsko",
+                    "resultText": "3",
+                    "isWinner": true,
                     "status": null,
-                    "name": "TBA"
+                    "name": "Švajčiarsko"
                 }
             ]
         },
@@ -153,18 +153,18 @@
             "name": "",
             "participants": [
                 {
-                    "id": "final1",
-                    "resultText": "-",
+                    "id": "Švajčiarsko",
+                    "resultText": "0",
                     "isWinner": false,
                     "status": null,
-                    "name": "TBA"
+                    "name": "Švajčiarsko"
                 },
                 {
-                    "id": "final2",
-                    "resultText": "-",
-                    "isWinner": false,
+                    "id": "Česko",
+                    "resultText": "2",
+                    "isWinner": true,
                     "status": null,
-                    "name": "TBA"
+                    "name": "Česko"
                 }
             ]
         }
@@ -179,18 +179,18 @@
             "name": "",
             "participants": [
                 {
-                    "id": "final3",
-                    "resultText": "-",
-                    "isWinner": false,
+                    "id": "Švédsko",
+                    "resultText": "4",
+                    "isWinner": true,
                     "status": null,
-                    "name": "TBA"
+                    "name": "Švédsko"
                 },
                 {
-                    "id": "final4",
-                    "resultText": "-",
+                    "id": "Kanada",
+                    "resultText": "2",
                     "isWinner": false,
                     "status": null,
-                    "name": "TBA"
+                    "name": "Kanada"
                 }
             ]
         }
